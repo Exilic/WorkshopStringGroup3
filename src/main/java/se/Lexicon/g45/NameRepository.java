@@ -14,10 +14,10 @@ public class NameRepository {
     } // getSize
 
     /** Replaces all existing names with template array */
-    public static void setNames(){
+    public static void setNames(String[] names){
         String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
 
-        names = templateNames.clone();
+        NameRepository.names = templateNames.clone();
     } // setNames
 
     /** Clears out the array */
