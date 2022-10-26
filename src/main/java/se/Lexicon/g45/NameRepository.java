@@ -3,7 +3,6 @@ package se.Lexicon.g45;
 import java.util.Arrays;
 public class NameRepository {
 
-
     private static String[] names = new String[] {
 
     };
@@ -15,9 +14,8 @@ public class NameRepository {
 
     /** Replaces all existing names with template array */
     public static void setNames(String[] names){
-        String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
 
-        NameRepository.names = templateNames.clone();
+        NameRepository.names = names.clone();
     } // setNames
 
     /** Clears out the array */

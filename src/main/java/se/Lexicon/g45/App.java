@@ -5,9 +5,14 @@ public class App {
 
     public static void main(String[] args) {
 
+
+        String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
+        NameRepository.setNames(templateNames);
+
         while (true) {
 
             menuOptions();
+
             // add some switch here perhaps
             break;
         }
