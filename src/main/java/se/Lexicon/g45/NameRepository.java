@@ -9,8 +9,7 @@ public class NameRepository {
 
     /** Returns number of elements in the array */
     public static int getSize(){
-
-        return 1;
+        return names.length;
     } // getSize
 
     /** Replaces all existing names with template array */
