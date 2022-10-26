@@ -5,7 +5,7 @@ public class NameRepository {
 
     private static String[] names = new String[] {
 
-    }
+    };
 
     /** Returns number of elements in the array */
     public static int getSize(){
