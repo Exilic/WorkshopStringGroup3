@@ -2,6 +2,10 @@ package se.Lexicon.g45;
 
 public class NameRepository {
 
+
+    private static String[] names = new String[] {
+
+    }
     public static int getSize(){
 
         return 1;
