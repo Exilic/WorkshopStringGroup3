@@ -33,6 +33,6 @@ public class App {
         System.out.println("** (11) Add a new name to the array       **");
         System.out.println("********************************************");
         System.out.print("Option: ");
-    }
+    } // menuOptions
 
 } // App
