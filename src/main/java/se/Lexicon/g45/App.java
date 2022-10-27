@@ -13,7 +13,6 @@ public class App {
         NameRepository.setNames(templateNames);
         NameRepository.findAll();
         NameRepository.add("Testing TheCode");
-        NameRepository.findAll();
         System.out.println(NameRepository.find("John Doe"));
 
         while (true) {
