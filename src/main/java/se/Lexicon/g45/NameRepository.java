@@ -21,7 +21,7 @@ public class NameRepository {
     /** Clears out the array */
     public static void clear(){
         names = null;
-    } // clear
+    } // clear.
 
     /** Returns all names from the array */
     public static String[] findAll(){
