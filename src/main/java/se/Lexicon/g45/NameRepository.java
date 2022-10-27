@@ -62,8 +62,7 @@ public class NameRepository {
     public static String[] findByFirstName(final String firstName){
         String[] foundNames = new String[0];
         for(String name : names){
-            int lastPosition = name.indexOf(" ");
-            if(name.substring(0, lastPosition).toLowerCase().equals(firstName.toLowerCase())){
+            if(name.substring(0, name.indexOf(" ")).equalsIgnoreCase(firstName)){
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
                 foundNames[foundNames.length - 1] = name;
             }
@@ -75,10 +74,8 @@ public class NameRepository {
      matches. */
     public static String[] findByLastName(final String lastName){
         String[] foundNames = new String[0];
-
         for(String name : names){
-            int firstPosition = name.indexOf(" ") + 1;
-            if(name.substring(firstPosition).toLowerCase().equals(lastName.toLowerCase())){
+            if(name.substring(name.indexOf(" ") + 1).equalsIgnoreCase(lastName)){
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
                 foundNames[foundNames.length - 1] = name;
             }

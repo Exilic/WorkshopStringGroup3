@@ -9,7 +9,7 @@ public class NameRepositoryTest {
     public void testFindByLastName(){
         String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
         NameRepository.setNames(templateNames);
-        String[] actualFound = NameRepository.findByLastName("Doe");
+        String[] actualFound = NameRepository.findByLastName("doE");
         String[] expected = {"John Doe", "Jane Doe"};
         assertArrayEquals("Something went wrong", expected, actualFound);
 
@@ -19,7 +19,7 @@ public class NameRepositoryTest {
     public void testFindByFirstName(){
         String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
         NameRepository.setNames(templateNames);
-        String[] actualFound = NameRepository.findByFirstName("John");
+        String[] actualFound = NameRepository.findByFirstName("joHn");
         String[] expected = {"John Doe"};
         assertArrayEquals("Something went wrong", expected, actualFound);
 
