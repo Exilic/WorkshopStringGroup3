@@ -36,22 +36,51 @@ public class App {
             switch (optionInput) {
                 case 1:
                     System.out.print("Type the name you want to add: ");
-                    String string = scan.next();
-                    NameRepository.add(string);
-                    System.out.println("The name " + string + " was added!");
+                    String addName = scan.nextLine();
+                    NameRepository.add(addName);
+                    System.out.println("The name " + addName + " was added!");
                     break;
                 case 2:
                     NameRepository.setNames(templateNames);
+                    System.out.println("The array now contains the template.");
                     break;
                 case 3:
+                    NameRepository.findAll();
+                    break;
                 case 4:
+                    System.out.print("Type the first name you want to search for: ");
+                    String firstName = scan.next();
+                    NameRepository.findByFirstName(firstName);
+                    break;
                 case 5:
+                    System.out.print("Type the last name you want to search for: ");
+                    String lastName = scan.next();
+                    NameRepository.findByLastName(lastName);
+                    break;
                 case 6:
+                    System.out.print("Type the full name you want to search for: ");
+                    String fullName = scan.nextLine();
+                    NameRepository.find(fullName);
+                    break;
                 case 7:
+                    System.out.println("Type the name you want to remove: ");
+                    String removeName = scan.nextLine();
+                    NameRepository.remove(removeName);
                 case 8:
+                    System.out.print("Type the name you want to replace: "); // fix this when replace works
+                    System.out.print("Type the name you want instead: ");
+                    break;
                 case 9:
+                    int arraySize = NameRepository.getSize();
+                    System.out.println("The size of the array is: " + arraySize);
+                    break;
                 case 10:
+                    NameRepository.clear();
+                    System.out.println("The array has been nullified.");
+                    break;
                 case 11:
+                    credits();
+                    break;
                 case 12:
                     System.out.println("Goodbye!");
                     System.exit(0);
