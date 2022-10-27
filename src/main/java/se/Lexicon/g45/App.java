@@ -11,15 +11,16 @@ public class App {
 
         String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
         NameRepository.setNames(templateNames);
-        NameRepository.findAll();
+        NameRepository.find();
         NameRepository.add("Testing TheCode");
+        NameRepository.findAll();
         System.out.println(NameRepository.find("John Doe"));
 
         while (true) {
 
             // menuOptions();
 
-            // add some switch here perhaps.
+            // add some switch here perhaps
             break;
         }
 
