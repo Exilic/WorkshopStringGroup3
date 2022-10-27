@@ -6,24 +6,17 @@ import java.util.Scanner;
 
 public class App {
 
+        public static String[] templateNames = {"John Doe", "Jane Doe", "King Kong", "John Wick"};
+
     public static void main(String[] args) {
 
-
-        String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
-        NameRepository.setNames(templateNames);
-        NameRepository.findAll();
-        NameRepository.add("Testing TheCode");
-        NameRepository.findAll();
-        System.out.println(NameRepository.find("John Doe"));
 
 
         while (true) {
 
-            // menuOptions();
-            // credits();
+            menuOptions();
+            option();
 
-            // add some switch here perhaps
-            break;
         }
 
 
@@ -41,10 +34,43 @@ public class App {
         System.out.println("** (\u001B[36m5\u001B[32m) Search by last name          ** (\u001B[36m11\u001B[32m) Credits                         **");
         System.out.println("** (\u001B[36m6\u001B[32m) Search by full name          ** (\u001B[36m12\u001B[32m) Exit the application            **");
         System.out.println("******************************************************************************");
-        System.out.print("Option: \u001B[0m");
-        Scanner scan = new Scanner(System.in);
-        // int option = scan.nextInt();
+
     } // menuOptions
+
+    public static void option() {
+
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("\u001B[32mOption: \u001B[0m");
+            int optionInput = scan.nextInt();
+            switch (optionInput) {
+                case 1:
+                    String string = scan.nextLine();
+                    NameRepository.add(string);
+                    break;
+                case 2:
+                    NameRepository.setNames(templateNames);
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                    System.out.println("Goodbye!");
+                    System.exit(0);
+                default:
+                    System.out.println("\u001B[31mPlease enter a valid option!\u001B[0m");
+            }
+
+
+        }
+    }
 
     public static void credits() {
         System.out.println("\u001B[36m _   .-')      ('-.     .-') _    .-') _             ('-.      .-')      (`-')                <-.(`-')   _     (`-')  _  (`-').-> ");
