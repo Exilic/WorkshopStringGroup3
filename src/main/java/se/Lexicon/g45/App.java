@@ -1,6 +1,7 @@
 package se.Lexicon.g45;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -50,22 +51,31 @@ public class App {
                 case 4:
                     System.out.print("Type the first name you want to search for: ");
                     String firstName = scan.next();
-                    NameRepository.findByFirstName(firstName);
+                    String[] returnedFirstName = NameRepository.findByFirstName(firstName);
+                    System.out.println(Arrays.toString(returnedFirstName));
                     break;
                 case 5:
                     System.out.print("Type the last name you want to search for: ");
                     String lastName = scan.next();
-                    NameRepository.findByLastName(lastName);
+                    String[] returnedLastName = NameRepository.findByLastName(lastName);
+                    System.out.println(Arrays.toString(returnedLastName));
                     break;
                 case 6:
                     System.out.print("Type the full name you want to search for: ");
                     String fullName = scan.nextLine();
-                    NameRepository.find(fullName);
+                    String returnedFullName = NameRepository.find(fullName);
+                    System.out.println(returnedFullName);
                     break;
                 case 7:
                     System.out.println("Type the name you want to remove: ");
                     String removeName = scan.nextLine();
-                    NameRepository.remove(removeName);
+                    boolean successfulRemove = NameRepository.remove(removeName);
+                    if (successfulRemove) {
+                        System.out.println("The name \"" + removeName + "\" was removed successfully.");
+                    } else {
+                        System.out.println("Nothing was removed.");
+                    }
+                    break;
                 case 8:
                     System.out.print("Type the name you want to replace: "); // fix this when replace works
                     System.out.print("Type the name you want instead: ");
