@@ -37,6 +37,7 @@ public class App {
             switch (optionInput) {
                 case 1:
                     System.out.print("Type the name you want to add: ");
+                    scan.nextLine();
                     String addName = scan.nextLine();
                     NameRepository.add(addName);
                     System.out.println("The name " + addName + " was added!");
