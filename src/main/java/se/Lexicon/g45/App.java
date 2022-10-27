@@ -14,6 +14,7 @@ public class App {
         NameRepository.findAll();
         NameRepository.add("Testing TheCode");
         NameRepository.findAll();
+        System.out.println(NameRepository.find("John Doe"));
 
 
         while (true) {

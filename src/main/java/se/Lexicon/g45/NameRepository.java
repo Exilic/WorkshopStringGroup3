@@ -40,11 +40,13 @@ public class NameRepository {
         return new String[0];
     } // findAll
 
-    /**
-     * Returns name if found and null if not found
-     */
-    public static String find(final String fullName) {
-
+    /** Returns name if found and null if not found */
+    public static String find(final String fullName){
+      for (String name : names) {
+          if (name.equalsIgnoreCase(fullName)){
+              return name;
+          }
+      }
         return "null";
     } // find
 
@@ -71,8 +73,15 @@ public class NameRepository {
     /** Searches the array trying to find all names that has passed in first name. Returns a String array containing all
      matches */
     public static String[] findByFirstName(final String firstName){
-
-        return new String[0];
+        String[] foundNames = new String[0];
+        for(String name : names){
+            int lastPosition = name.indexOf(" ");
+            if(name.substring(0, lastPosition).toLowerCase().equals(firstName.toLowerCase())){
+                foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
+                foundNames[foundNames.length - 1] = name;
+            }
+        }
+        return foundNames;
     } // findByFirstName
 
     /**
@@ -81,13 +90,12 @@ public class NameRepository {
      */
     public static String[] findByLastName(final String lastName) {
         String[] foundNames = new String[0];
-        int index = 0;
-        for (String name : names) {
+
+        for(String name : names){
             int firstPosition = name.indexOf(" ") + 1;
-            if (name.toLowerCase() == name.substring(firstPosition).toLowerCase()) {
+            if(name.substring(firstPosition).toLowerCase().equals(lastName.toLowerCase())){
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
-                foundNames[index] = name;
-                index++;
+                foundNames[foundNames.length - 1] = name;
             }
         }
         return foundNames;
