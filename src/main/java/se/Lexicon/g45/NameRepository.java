@@ -107,7 +107,7 @@ public class NameRepository {
 
     /**
      * Finds a name and replace it with new fullName if available. Returns true if name was found and updated
-     * with the new name. False if name could not be updated because name wasn’t found or name was found but an
+     * with the new name. False if name could not be updated because name was not found or name was found but an
      * existing name matching the updatedName already exists.
      */
     public static boolean update(final String original, final String updatedName) {
