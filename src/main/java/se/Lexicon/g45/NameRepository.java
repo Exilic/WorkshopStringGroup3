@@ -68,13 +68,12 @@ public class NameRepository {
      matches. */
     public static String[] findByLastName(final String lastName){
         String[] foundNames = new String[0];
-        int index = 0;
+
         for(String name : names){
             int firstPosition = name.indexOf(" ") + 1;
-            if(name.toLowerCase() == name.substring(firstPosition).toLowerCase()){
+            if(name.substring(firstPosition).toLowerCase().equals(lastName.toLowerCase())){
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
-                foundNames[index] = name;
-                index++;
+                foundNames[foundNames.length - 1] = name;
             }
         }
         return foundNames;
