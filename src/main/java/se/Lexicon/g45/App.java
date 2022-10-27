@@ -1,53 +1,44 @@
 package se.Lexicon.g45;
 
 
-import javax.naming.Name;
 import java.util.Scanner;
 
 public class App {
 
-        public static String[] templateNames = {"John Doe", "Jane Doe", "King Kong", "John Wick"};
+    public static String[] templateNames = {"John Doe", "Jane Doe", "King Kong", "John Wick"};
 
     public static void main(String[] args) {
 
 
+        theMenu();
 
-        while (true) {
-
-            menuOptions();
-            option();
-
-        }
 
 
     } // main
 
-    /** Prints the main menu options */
-    public static void menuOptions() {
-        System.out.println("\u001B[32m******************************************************************************");
-        System.out.println("******************* Group 45 string management service 1.0 *******************");
-        System.out.println("******************************************************************************");
-        System.out.println("** (\u001B[36m1\u001B[32m) Add a new name to the array  ** (\u001B[36m7\u001B[32m) Remove a name from the array     **");
-        System.out.println("** (\u001B[36m2\u001B[32m) Copy template to the array   ** (\u001B[36m8\u001B[32m) Change a name into another name  **");
-        System.out.println("** (\u001B[36m3\u001B[32m) Print the array              ** (\u001B[36m9\u001B[32m) Find the size of the array       **");
-        System.out.println("** (\u001B[36m4\u001B[32m) Search by first name         ** (\u001B[36m10\u001B[32m) Clear the array                 **");
-        System.out.println("** (\u001B[36m5\u001B[32m) Search by last name          ** (\u001B[36m11\u001B[32m) Credits                         **");
-        System.out.println("** (\u001B[36m6\u001B[32m) Search by full name          ** (\u001B[36m12\u001B[32m) Exit the application            **");
-        System.out.println("******************************************************************************");
-
-    } // menuOptions
-
-    public static void option() {
+    public static void theMenu() {
 
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.print("\u001B[32mOption: \u001B[0m");
+            System.out.println("\u001B[32m******************************************************************************");
+            System.out.println("******************* Group 45 string management service 1.0 *******************");
+            System.out.println("******************************************************************************");
+            System.out.println("** (\u001B[36m1\u001B[32m) Add a new name to the array  ** (\u001B[36m7\u001B[32m) Remove a name from the array     **");
+            System.out.println("** (\u001B[36m2\u001B[32m) Copy template to the array   ** (\u001B[36m8\u001B[32m) Change a name into another name  **");
+            System.out.println("** (\u001B[36m3\u001B[32m) Print the array              ** (\u001B[36m9\u001B[32m) Find the size of the array       **");
+            System.out.println("** (\u001B[36m4\u001B[32m) Search by first name         ** (\u001B[36m10\u001B[32m) Clear the array                 **");
+            System.out.println("** (\u001B[36m5\u001B[32m) Search by last name          ** (\u001B[36m11\u001B[32m) Credits                         **");
+            System.out.println("** (\u001B[36m6\u001B[32m) Search by full name          ** (\u001B[36m12\u001B[32m) Exit the application            **");
+            System.out.println("******************************************************************************\u001B[0m");
+            System.out.print("Option: ");
             int optionInput = scan.nextInt();
             switch (optionInput) {
                 case 1:
-                    String string = scan.nextLine();
+                    System.out.print("Type the name you want to add: ");
+                    String string = scan.next();
                     NameRepository.add(string);
+                    System.out.println("The name " + string + " was added!");
                     break;
                 case 2:
                     NameRepository.setNames(templateNames);
