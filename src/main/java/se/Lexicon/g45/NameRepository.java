@@ -31,7 +31,11 @@ public class NameRepository {
 
     /** Returns name if found and null if not found */
     public static String find(final String fullName){
-
+      for (String name : names) {
+          if (name.equalsIgnoreCase(fullName)){
+              return name;
+          }
+      }
         return "null";
     } // find
 
