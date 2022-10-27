@@ -25,8 +25,7 @@ public class NameRepository {
 
     /** Returns all names from the array */
     public static String[] findAll(){
-        String findingAll = Arrays.toString(names);
-        System.out.println(findingAll);
+        System.out.println(Arrays.toString(names));
         return new String[0];
     } // findAll
 
