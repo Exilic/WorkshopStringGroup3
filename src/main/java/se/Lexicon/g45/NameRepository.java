@@ -67,7 +67,7 @@ public class NameRepository {
         int index = 0;
         for(String name : names){
             int firstPosition = name.indexOf(" ") + 1;
-            if(name.contains(name.substring(firstPosition))){
+            if(name.toLowerCase() == name.substring(firstPosition).toLowerCase()){
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
                 foundNames[index] = name;
                 index++;
