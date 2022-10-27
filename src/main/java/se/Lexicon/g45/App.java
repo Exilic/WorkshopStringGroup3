@@ -1,6 +1,8 @@
 package se.Lexicon.g45;
 
 
+import javax.naming.Name;
+
 public class App {
 
     public static void main(String[] args) {
@@ -8,10 +10,13 @@ public class App {
 
         String[] templateNames = {"John Doe", "Jane Doe", "King Kong"};
         NameRepository.setNames(templateNames);
+        NameRepository.findAll();
+        NameRepository.add("Testing TheCode");
+        NameRepository.findAll();
 
         while (true) {
 
-            menuOptions();
+            // menuOptions();
 
             // add some switch here perhaps
             break;

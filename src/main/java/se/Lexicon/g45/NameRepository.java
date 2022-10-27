@@ -32,12 +32,23 @@ public class NameRepository {
     /** Returns name if found and null if not found */
     public static String find(final String fullName){
 
-        return "temporary";
+        return "null";
     } // find
 
     /** Adds a new name to the array. Returns true when name was added and false when the array contains
      the name. */
     public static boolean add(final String fullName){
+
+        String compare = find(fullName);
+        if (compare == "null") {
+            String tempString[] = names.clone();
+            names = new String[tempString.length + 1];
+
+            for (int i = 0; i < tempString.length; i++) {
+                names[i] = tempString[i];
+            }
+            names[tempString.length] = fullName;
+        }
 
         return false;
     } // add
