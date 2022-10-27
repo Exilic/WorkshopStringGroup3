@@ -63,8 +63,17 @@ public class NameRepository {
     /** Searches the array trying to find all names that has passed in last name. Returns a String array containing all
      matches. */
     public static String[] findByLastName(final String lastName){
-
-        return new String[0];
+        String[] foundNames = new String[0];
+        int index = 0;
+        for(String name : names){
+            int firstPosition = name.indexOf(" ") + 1;
+            if(name.contains(name.substring(firstPosition))){
+                foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
+                foundNames[index] = name;
+                index++;
+            }
+        }
+        return foundNames;
     } // findByLastName
 
     /** Finds a name and replace it with new fullName if available. Returns true if name was found and updated
