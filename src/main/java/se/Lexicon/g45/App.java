@@ -1,6 +1,8 @@
 package se.Lexicon.g45;
 
 
+import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -13,14 +15,13 @@ public class App {
         theMenu();
 
 
-
     } // main
 
     public static void theMenu() {
 
-        Scanner scan = new Scanner(System.in);
 
         while (true) {
+
             System.out.println("\u001B[32m******************************************************************************");
             System.out.println("******************* Group 45 string management service 1.0 *******************");
             System.out.println("******************************************************************************");
@@ -32,11 +33,12 @@ public class App {
             System.out.println("** (\u001B[36m6\u001B[32m) Search by full name          ** (\u001B[36m12\u001B[32m) Exit the application            **");
             System.out.println("******************************************************************************\u001B[0m");
             System.out.print("Option: ");
-            int optionInput = scan.nextInt();
+
+            int optionInput = getNumber();
             switch (optionInput) {
                 case 1:
                     System.out.print("Type the name you want to add: ");
-                    String addName = scan.nextLine();
+                    String addName = getString();
                     NameRepository.add(addName);
                     System.out.println("The name " + addName + " was added!");
                     break;
@@ -49,23 +51,32 @@ public class App {
                     break;
                 case 4:
                     System.out.print("Type the first name you want to search for: ");
-                    String firstName = scan.next();
-                    NameRepository.findByFirstName(firstName);
+                    String firstName = getString();
+                    String[] returnedFirstName = NameRepository.findByFirstName(firstName);
+                    System.out.println(Arrays.toString(returnedFirstName));
                     break;
                 case 5:
                     System.out.print("Type the last name you want to search for: ");
-                    String lastName = scan.next();
-                    NameRepository.findByLastName(lastName);
+                    String lastName = getString();
+                    String[] returnedLastName = NameRepository.findByLastName(lastName);
+                    System.out.println(Arrays.toString(returnedLastName));
                     break;
                 case 6:
                     System.out.print("Type the full name you want to search for: ");
-                    String fullName = scan.nextLine();
-                    NameRepository.find(fullName);
+                    String fullName = getString();
+                    String returnedFullName = NameRepository.find(fullName);
+                    System.out.println(returnedFullName);
                     break;
                 case 7:
                     System.out.println("Type the name you want to remove: ");
-                    String removeName = scan.nextLine();
-                    NameRepository.remove(removeName);
+                    String removeName = getString();
+                    boolean successfulRemove = NameRepository.remove(removeName);
+                    if (successfulRemove) {
+                        System.out.println("The name \"" + removeName + "\" was removed successfully.");
+                    } else {
+                        System.out.println("Nothing was removed.");
+                    }
+                    break;
                 case 8:
                     System.out.print("Type the name you want to replace: "); // fix this when replace works
                     System.out.print("Type the name you want instead: ");
@@ -114,6 +125,23 @@ public class App {
     }
 
 
+    private static int getNumber() {
+        Scanner scanner = new Scanner(System.in);
+        int number;
 
+        try {
+            number = scanner.nextInt();
+
+        } catch (InputMismatchException e) {
+            number = 0;
+        }
+
+        return number;
+    }
+
+    private static String getString() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
 
 } // App
