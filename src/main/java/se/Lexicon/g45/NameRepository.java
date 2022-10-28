@@ -37,7 +37,7 @@ public class NameRepository {
      */
     public static String[] findAll() {
         System.out.println(Arrays.toString(names));
-        return new String[0];
+        return names;
     } // findAll
 
     /**
@@ -120,7 +120,7 @@ public class NameRepository {
             clear();
             int indexOf = -1;
             for (int i = 0; i < tempString.length; i++) {
-                if (tempString[i] == fullName) {
+                if (tempString[i] == compare) {
                     indexOf = i;
                 }
             }
