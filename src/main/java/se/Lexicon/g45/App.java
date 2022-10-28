@@ -39,8 +39,12 @@ public class App {
                 case 1:
                     System.out.print("Type the name you want to add: ");
                     String addName = getString();
-                    NameRepository.add(addName);
-                    System.out.println("The name " + addName + " was added!");
+                    boolean addSuccess = NameRepository.add(addName);
+                    if (addSuccess) {
+                        System.out.println("The name " + addName + " was added!");
+                    } else {
+                        System.out.println("Nothing was added.");
+                    }
                     break;
                 case 2:
                     NameRepository.setNames(templateNames);

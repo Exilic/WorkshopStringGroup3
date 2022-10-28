@@ -59,8 +59,8 @@ public class NameRepository {
     public static boolean add(final String fullName) {
 
         String compare = find(fullName);
-        if (compare == "null") {
-            String tempString[] = names.clone();
+        if (compare.equals("null")) {
+            String[] tempString = names.clone();
             names = new String[tempString.length + 1];
 
             for (int i = 0; i < tempString.length; i++) {
@@ -72,12 +72,14 @@ public class NameRepository {
         return false;
     } // add
 
-    /** Searches the array trying to find all names that has passed in first name. Returns a String array containing all
-     matches */
-    public static String[] findByFirstName(final String firstName){
+    /**
+     * Searches the array trying to find all names that has passed in first name. Returns a String array containing all
+     * matches
+     */
+    public static String[] findByFirstName(final String firstName) {
         String[] foundNames = new String[0];
-        for(String name : names){
-            if(name.substring(0, name.indexOf(" ")).equalsIgnoreCase(firstName)){
+        for (String name : names) {
+            if (name.substring(0, name.indexOf(" ")).equalsIgnoreCase(firstName)) {
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
                 foundNames[foundNames.length - 1] = name;
             }
@@ -85,12 +87,14 @@ public class NameRepository {
         return foundNames;
     } // findByFirstName
 
-    /** Searches the array trying to find all names that has passed in last name. Returns a String array containing all
-     matches. */
-    public static String[] findByLastName(final String lastName){
+    /**
+     * Searches the array trying to find all names that has passed in last name. Returns a String array containing all
+     * matches.
+     */
+    public static String[] findByLastName(final String lastName) {
         String[] foundNames = new String[0];
-        for(String name : names){
-            if(name.substring(name.indexOf(" ") + 1).equalsIgnoreCase(lastName)){
+        for (String name : names) {
+            if (name.substring(name.indexOf(" ") + 1).equalsIgnoreCase(lastName)) {
                 foundNames = Arrays.copyOf(foundNames, foundNames.length + 1);
                 foundNames[foundNames.length - 1] = name;
             }
@@ -125,12 +129,12 @@ public class NameRepository {
     public static boolean remove(final String fullName) {
 
         String compare = find(fullName);
-        if (compare != "null") {
-            String tempString[] = names.clone();
+        if (!compare.equals("null")) {
+            String[] tempString = names.clone();
             clear();
             int indexOf = -1;
             for (int i = 0; i < tempString.length; i++) {
-                if (tempString[i] == compare) {
+                if (tempString[i].equals(compare)) {
                     indexOf = i;
                 }
             }
