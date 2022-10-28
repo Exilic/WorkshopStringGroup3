@@ -82,8 +82,16 @@ public class App {
                     }
                     break;
                 case 8:
-                    System.out.print("Type the name you want to replace: "); // fix this when replace works
+                    System.out.print("Type the name you want to replace: ");
+                    String initialName = getString();
                     System.out.print("Type the name you want instead: ");
+                    String replaceName = getString();
+                    boolean isUpdated = NameRepository.update(initialName, replaceName);
+                    if (isUpdated) {
+                        System.out.println(" The name " + initialName + " was changed to " + replaceName + ".");
+                    } else {
+                        System.out.println("Nothing was updated.");
+                    }
                     break;
                 case 9:
                     int arraySize = NameRepository.getSize();
