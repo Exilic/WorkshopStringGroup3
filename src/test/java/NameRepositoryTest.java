@@ -50,7 +50,7 @@ public class NameRepositoryTest {
 
     @Test
     public void testRemove(){
-        Boolean actualResponse = NameRepository.remove("kinG konG");
+        NameRepository.remove("kinG konG");
         String actual = NameRepository.find("king koNG");
         Assert.assertTrue(actual.equalsIgnoreCase("null"));
     }
@@ -69,10 +69,22 @@ public class NameRepositoryTest {
     }
 
     @Test
-    public void testUpdate(){
+    public void testUpdate1(){
         NameRepository.update("Jane Doe", "Jane Austen");
         String actual = NameRepository.findAll()[1];
         Assert.assertEquals("Jane Austen", actual);
+    }
+
+    @Test
+    public void testUpdate2(){
+        Boolean actual = NameRepository.update("Jane Don", "Jane Austen");
+        Assert.assertEquals(false, actual);
+    }
+
+    @Test
+    public void testUpdate3(){
+        Boolean actual = NameRepository.update("Jane Doe", "King Kong");
+        Assert.assertEquals(false, actual);
     }
 
 }
