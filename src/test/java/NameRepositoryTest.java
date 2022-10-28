@@ -68,4 +68,11 @@ public class NameRepositoryTest {
         Assert.assertEquals("Don King", actual);
     }
 
+    @Test
+    public void testUpdate(){
+        NameRepository.update("Jane Doe", "Jane Austen");
+        String actual = NameRepository.findAll()[1];
+        Assert.assertEquals("Jane Austen", actual);
+    }
+
 }

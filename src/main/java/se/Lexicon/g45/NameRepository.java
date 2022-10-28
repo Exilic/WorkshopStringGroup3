@@ -104,7 +104,17 @@ public class NameRepository {
      * existing name matching the updatedName already exists.
      */
     public static boolean update(final String original, final String updatedName) {
-
+        if(!find(updatedName).equals("null")){
+            return false;
+        }
+        if(find(original).equalsIgnoreCase(original)){
+            for(int i = 0; i < names.length; i++){
+                if(names[i].equalsIgnoreCase(original)){
+                    names[i] = updatedName;
+                    return true;
+                }
+            }
+        }
         return false;
     } // update
 
